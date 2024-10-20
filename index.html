@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For U</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffeef8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #d5006d;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 800px;
+            width: 100%;
+            padding: 10px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+            text-align: center; /* Center the text */
+        }
+        .gallery-item img {
+            width: 100%;
+            border-radius: 15px;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .description {
+            margin-top: 10px;
+            color: #d5006d;
+            font-weight: bold;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>For U</h1>
+    <audio controls>
+        <source src="Cry.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung pemutar audio.
+    </audio>
+    <div class="gallery">
+        <div class="gallery-item" onclick="openModal('IMG_20241020_103709.jpg', '')">
+            <img src="IMG_20241020_103709.jpg" alt="Foto 1">
+            <div class="description">Pigal Berhijab 1</div>
+        </div>
+        <div class="gallery-item" onclick="openModal('IMG_20241020_104226.jpg', '')">
+            <img src="IMG_20241020_104226.jpg" alt="Foto 2">
+            <div class="description">Pigal Berhijab 2</div>
+        </div>
+        <div class="gallery-item" onclick="openModal('IMG_20241020_104321.jpg', '')">
+            <img src="IMG_20241020_104321.jpg" alt="Foto 3">
+            <div class="description">Pigal Berhijab 3</div>
+        </div>
+        <div class="gallery-item" onclick="openModal('IMG_20241020_104420.jpg', '')">
+            <img src="IMG_20241020_104420.jpg" alt="Foto 4">
+            <div class="description">Pigal Berhijab 4</div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="modalCaption" style="color: white; text-align: center; margin-top: 10px;"></div>
+    </div>
+
+    <script>
+        function openModal(imageSrc, caption) {
+            document.getElementById("modalImage").src = imageSrc;
+            document.getElementById("modalCaption").innerText = caption;
+            document.getElementById("myModal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
